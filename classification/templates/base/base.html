@@ -1,0 +1,189 @@
+{% load static %} 
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>PFE</title>
+        <!-- CSS only -->
+       
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+<link href="{% static 'css/base.css' %}" rel="stylesheet"> 
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top " >
+            <div class="container-fluid">
+              <a href="{% url 'acceuil' %}" ><img src="{% static 'images/img.png'%}" style="width: 100px; height: 70px;"></a>
+              <div class="collapse navbar-collapse " id="navbarScroll">
+                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll " style="--bs-scroll-height: 100px;">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'acceuil' %}">Acceuil</a>
+                  </li>
+                  <li class="nav-item ">
+                    <a class="nav-link" href="{% url 'propos' %}"  aria-expanded="false">
+                      A propos
+                    </a>
+                  </li>
+                  <li class="nav-item ">
+                    <a class="nav-link " href="{% url 'contact' %}"  aria-expanded="false">
+                      Contacte
+                    </a>
+                  </li>
+                  
+                </ul>
+                {% if user.is_authenticated %}
+                <div class="dropdown">
+                  <button class="dropbtn "><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+              <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+            </svg></button>
+            <span > {{request.user}}</span> &nbsp;
+            <div class="dropdown-content">
+              <a href="{% url 'logout' %}">Déconnexion</a>
+             {% if compte.roles == 'M' %}
+              <a href="{% url 'pro_med' %}">Profile</a>
+             {%endif%}
+            </div> 
+          </div> 
+            {% else %}
+            <a class="btn btn-danger " href="{% url 'connecter' %}" role="button"> Se connecter</a>&nbsp;&nbsp;
+            {%endif%}
+          
+                
+              </div>
+              
+            </div>
+          </nav>
+        
+        
+          <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner" >
+              <div class="carousel-item active">
+                <img src="{% static 'images/santé1.jpg' %}" class="d-block w-100" style="height: 400px;" alt="Doc1"  >
+                <div class="carousel-caption d-none d-md-block">
+                  <h1 class="text-center">Best Doc</h1>
+                  <h1 class="text-right">Votre santé nous est précieuse</h1>
+                  
+                </div>
+                
+              </div>
+             
+              <div class="carousel-item">
+                <img src="{% static 'images/santé2.jpg' %}" class="d-block  w-100" style="height: 400px;" alt="Doc2" >
+              </div>
+              <div class="carousel-item">
+                <img src="{% static 'images/santé3.jpg' %}" class="d-block  w-100 " style="height: 400px;" alt="Doc3" >
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"  data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"  data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+          
+        {% block contenu %}
+        
+        {% endblock %}
+        
+       
+     <!-- Footer -->
+<footer class="bg-dark text-center text-white">
+    <!-- Grid container -->
+    <div class="container p-4">
+      <!-- Section: Links -->
+      <section class="">
+        <!--Grid row-->
+        <div class="row">
+          <!--Grid column-->
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <h5 class="text-uppercase">Recherches fréquentes</h5>
+  
+            <ul class="list-unstyled mb-0">
+              <li>
+                <a href="#!" class="text-white">Ophtalmologiste </a>
+              </li>
+              <li>
+                <a href="#!" class="text-white">Gynécologue Obstétricien </a>
+              </li>
+              <li>
+                <a href="#!" class="text-white">Dermatologue</a>
+              </li>
+              <li>
+                <a href="#!" class="text-white">Chirurgien Orthopédiste Traumatologue</a>
+              </li>
+              <li>
+                <a href="#!" class="text-white">Dentiste</a>
+              </li>
+              <li>
+                <a href="#!" class="text-white">Psychiatre</a>
+              </li>
+              <li>
+                <a href="#!" class="text-white">Cardiologue</a>
+              </li>
+            </ul>
+          </div>
+          <!--Grid column-->
+  
+          <!--Grid column-->
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <h5 class="text-uppercase">Nous suivre </h5>
+  
+            <ul class="list-unstyled mb-0">
+              <li>
+                <a href="#!" class="text-white">Facebook</a>
+              </li>
+              <li>
+                <a href="#!" class="text-white">Linkedin</a>
+              </li>
+              <li>
+                <a href="#!" class="text-white">Twitter</a>
+              </li>
+            </ul>
+          </div>
+          <!--Grid column-->
+  
+          <!--Grid column-->
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <h5 class="text-uppercase">Lien</h5>
+  
+            <ul class="list-unstyled mb-0">
+              <li>
+                <a href="{% url 'propos' %}" class="text-white">A propos</a>
+              </li>
+              <li>
+                <a href="{% url 'contact' %}" class="text-white">Contacte</a>
+              </li>
+              <li>
+                <a href="{% url 'connecter' %}" class="text-white">Connecter</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!--Grid row-->
+      </section>
+      <!-- Section: Links -->
+    </div>
+    <!-- Grid container -->
+  
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      
+      <a class="text-white" href="#">Best Doc</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+ </body>
+</html>

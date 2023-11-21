@@ -1,0 +1,88 @@
+.course-accent{
+    background:  #02b3e4;
+    position: absolute;
+    height: 50px;
+    width: 12px;
+    border-radius: 0px 10px 10px 0px;
+
+}
+.contact {
+    text-align: center;
+    color: #02b3e4;
+    box-shadow: 5px 5px 25px 0px rgba(46, 61, 73, 0.2);
+    border: 7px solid #02b3e4;
+    
+}
+
+
+
+.comment-card {
+    position: relative;
+    z-index: -1;
+    box-shadow: none;
+    transition: all .2s ease;
+  border:none;
+}
+.md-show .comment-card {
+    display: inline;
+    height: 446px;
+    transition: all .2s ease;
+    z-index: 4;
+    font-weight: 400;
+}
+
+.bottom-border{position: absolute;bottom: -8px;right: 1px;width: 0px;height: 20%;background:#02c5b1;border-radius: 0px 0px 15px 15px;transition: all .2s ease;z-index: -1;transition-delay: .2s;transition-delay: .2s;}
+.move .bottom-border{
+    width: calc(100% - -7px);
+    transition: all .2s;
+    transition-delay: .4s;
+}
+
+
+.center {
+    position: absolute;
+    right: 25px;
+    top: 40.5px;
+
+}
+
+
+
+.comment-card .btn:hover{
+  background:#02b3e4;
+  color:#fff !important;
+}
+.comment-card .btn:active{
+  background:#02b3e4;
+    color:#fff;
+}
+.comment-card .btn{
+    color: #02b3e4;
+    padding: 15px 25px;
+}
+
+.card {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    margin: 25px 0;
+    box-shadow: 5px 5px 25px 0px rgba(46, 61, 73, 0.2);
+    border-radius: 10px;
+    color: rgba(0, 0, 0, 0.87);
+    background: #fff;
+  transition: 0.2s box-shadow ease-in-out;
+}
+
+.card .card-image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+    pointer-events: none;
+}
+
+.card .card-content {
+    padding: 15px 20px;
+    position: relative;
+}
+
+

@@ -1,0 +1,34 @@
+{% extends 'base/base.html' %}
+
+
+{% block contenu %}
+{% load static %}
+
+<link href="{% static 'css/map.css' %}" rel="stylesheet">  
+
+{% include 'base/search.html' %}
+
+<div class="row " style="margin-left: 150px;">
+    
+    <!--Grid column-->
+    <div class="col-md-6 ">
+        <!--Card content-->
+        <div class="card-body card-body-cascade text-center ">
+         <!--Google map-->
+<div id="map-container-google-1" class="z-depth-1-half map-container" style="height: 500px">
+  <iframe src="https://maps.google.com/maps?q=Tunis&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
+    style="border:0" allowfullscreen></iframe>
+</div>
+
+<!--Google Maps-->
+  
+        </div>
+        <!--/.Card content-->
+  
+    </div>
+    <!--Grid column-->
+  
+   
+  
+  </div>
+{% endblock %}

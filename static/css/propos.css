@@ -1,0 +1,12 @@
+#main {
+    max-width:1000px;
+    margin:auto;
+    }
+    #menu  {
+    float:left;
+    height: 20px
+    }
+    #contenu {
+    margin-left:500px;
+    background-color:#498e9e;
+    }

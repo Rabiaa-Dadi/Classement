@@ -1,0 +1,23 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block contenu %}
+<link href="{% static 'css/propos.css' %}" rel="stylesheet">  
+<br/><br/>
+
+<div id="main">
+    <div id="menu">
+        <img src="{% static 'images/p1.jpg' %}" class="d-block  w-50 " style="height: 320px;"  alt="Doc3" >
+
+    </div>
+   
+    <div id="contenu">
+        <h2>Présentation et objectif de notre site:</h2>
+     <p>
+        Le patient est libre de choisir son médecin, mais il espère toujours consulter chez le médecin le plus renommé.
+         Les médecins, généralistes ou spécialistes, sont de plus en plus nombreux. De ce fait, il n'est pas aussi évident de choisir chez qui se rendre et de deviner leurs compétences. Le patient est alors délaissé à quelques informations retrouvées par ici et par là. Le bouche à oreille joue un rôle décisif dans le processus de choix d’un médecin.
+          Le but de ce projet donc est de développer une application web ayant pour objectif de collecter les avis utilisateurs et de classer les médecins sur la base de ces avis.
+          
+     </p>
+    </div>
+   </div>
+{%endblock%}
